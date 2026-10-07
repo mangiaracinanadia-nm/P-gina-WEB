@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>polo. indumentaria — Funcional · Cómoda · Profesional</title>
+<meta name="description" content="Indumentaria POLO, Rosario. Colección Legado y Modernidad. Venta minorista y mayorista. Lamadrid 470, Rosario, Santa Fe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --carbon:#1F2937; --carbon-2:#3B4453; --stone:#6B7280; --stone-2:#E5E7EB;
+    --petrol:#00BBA9; --white:#FFFFFF;
+    --beige:#D9CDB8; --beige-soft:#F2EDE4; --beige-mid:#E7DECD;
+    --petrol-soft:rgba(0,187,169,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--carbon);background:var(--white);line-height:1.5;}
+  button,input,select{font:inherit;}
+  svg{display:block;}
+  .polo-wrap{max-width:1040px;margin:0 auto;}
+
+  /* ============ HEADER ============ */
+  .p-header{position:sticky;top:0;z-index:40;background:var(--white);border-bottom:1px solid var(--beige-mid);display:flex;align-items:center;gap:24px;padding:14px 24px;}
+  .p-logo{font-size:19px;font-weight:500;letter-spacing:.4px;white-space:nowrap;}
+  .p-logo em{font-style:normal;color:var(--petrol);}
+  .p-logo small{font-size:11px;color:var(--stone);display:block;letter-spacing:2px;}
+  .p-nav{display:flex;gap:4px;margin:0 auto;}
+  .p-nav a{font-size:14px;color:var(--stone);text-decoration:none;padding:6px 12px;border-radius:8px;transition:.15s;}
+  .p-nav a:hover,.p-nav a.on{color:var(--white);background:var(--carbon-2);}
+  .p-header-icons{display:flex;align-items:center;gap:8px;}
+  .icon-btn{position:relative;width:36px;height:36px;border:1px solid var(--beige-mid);background:var(--white);border-radius:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--carbon);transition:.15s;}
+  .icon-btn:hover{border-color:var(--carbon);}
+  .cart-count{position:absolute;top:-6px;right:-6px;min-width:17px;height:17px;padding:0 4px;background:var(--petrol);color:var(--carbon);font-size:11px;font-weight:500;border-radius:9px;display:flex;align-items:center;justify-content:center;}
+  .p-sede{font-size:12px;color:var(--stone);border:1px solid var(--beige-mid);border-radius:9px;padding:8px 10px;background:var(--white);cursor:pointer;}
+
+  /* ============ HERO ============ */
+  .p-hero{padding:64px 24px 56px;border-bottom:1px solid var(--beige-mid);background:linear-gradient(180deg,var(--white) 0%,var(--beige-soft) 100%);}
+  .p-hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;max-width:960px;margin:0 auto;}
+  .p-kicker{font-size:12px;letter-spacing:2.5px;color:var(--petrol);text-transform:uppercase;margin-bottom:12px;}
+  .p-hero h1{font-size:40px;font-weight:500;line-height:1.12;margin:0 0 14px;letter-spacing:.2px;}
+  .p-hero p.sub{font-size:16px;color:var(--stone);margin:0 0 24px;max-width:44ch;}
+  .p-cta{display:inline-flex;align-items:center;gap:10px;background:var(--petrol);color:var(--carbon);border:none;padding:13px 26px;border-radius:10px;font-size:15px;font-weight:500;cursor:pointer;transition:.15s;}
+  .p-cta:hover{filter:brightness(.94);transform:translateY(-1px);}
+  .p-ghost{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--carbon);border:1px solid var(--beige);padding:12px 20px;border-radius:10px;font-size:14px;cursor:pointer;margin-left:10px;transition:.15s;}
+  .p-ghost:hover{border-color:var(--carbon-2);}
+  .p-edition{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:12.5px;color:var(--carbon);background:var(--white);border:1px solid var(--beige);padding:8px 14px;border-radius:9px;}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--petrol);animation:pulse 1.8s infinite;flex-shrink:0;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .p-hero-visual{background:var(--carbon-2);border-radius:14px;padding:28px;color:var(--stone-2);height:300px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;}
+  .p-hero-visual::after{content:'';position:absolute;right:-40px;bottom:-40px;width:180px;height:180px;border-radius:50%;border:1px solid rgba(217,205,184,.25);}
+  .hv-top{font-size:11px;letter-spacing:3px;color:var(--petrol);text-transform:uppercase;}
+  .hv-quote{font-size:20px;line-height:1.4;color:var(--white);max-width:22ch;}
+  .hv-quote b{color:var(--petrol);font-weight:500;}
+  .hv-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--beige);}
+  .hv-chip{position:absolute;top:24px;right:24px;background:rgba(217,205,184,.15);color:var(--beige);font-size:10.5px;letter-spacing:2px;padding:5px 10px;border-radius:6px;text-transform:uppercase;}
+
+  /* ============ STOCK BANNER ============ */
+  .p-stockbar{margin:20px 24px 0;border:1px solid var(--beige);background:var(--beige-soft);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--carbon);}
+  .p-stockbar .bar{flex:1;height:5px;background:var(--beige-mid);border-radius:3px;overflow:hidden;min-width:80px;}
+  .p-stockbar .bar i{display:block;height:100%;background:var(--petrol);border-radius:3px;transition:width .4s;}
+
+  /* ============ CATALOG ============ */
+  .p-cat-wrap{background:var(--beige-soft);border-top:1px solid var(--beige-mid);border-bottom:1px solid var(--beige-mid);}
+  .p-cat{padding:36px 24px 28px;max-width:960px;margin:0 auto;}
+  .p-sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;}
+  .p-sec-head h2{font-size:24px;font-weight:500;}
+  .p-sec-head span{font-size:13px;color:var(--stone);}
+  .p-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:16px;}
+  .p-card{border:1px solid var(--beige-mid);border-radius:12px;overflow:hidden;background:var(--white);display:flex;flex-direction:column;transition:.18s;}
+  .p-card:hover{border-color:var(--carbon-2);transform:translateY(-2px);}
+  .p-card.combo{border-color:var(--petrol);box-shadow:0 0 0 3px var(--petrol-soft);}
+  .p-img{height:170px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .p-img::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 110%,rgba(255,255,255,.55),transparent 60%);}
+  .p-img>svg{position:relative;filter:drop-shadow(0 8px 12px rgba(31,41,55,.18));}
+  .p-badge{position:absolute;top:10px;left:10px;background:var(--petrol);color:var(--carbon);font-size:11px;font-weight:500;padding:3px 9px;border-radius:6px;z-index:2;}
+  .p-tono{position:absolute;bottom:8px;right:10px;display:flex;gap:5px;z-index:2;}
+  .p-tono i{width:12px;height:12px;border-radius:50%;border:1px solid rgba(31,41,55,.15);}
+  .p-body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:8px;flex:1;}
+  .p-name{font-size:15px;font-weight:500;}
+  .p-desc{font-size:12.5px;color:var(--stone);flex:1;}
+  .p-sizes{display:flex;gap:6px;flex-wrap:wrap;}
+  .size-btn{width:32px;height:32px;border:1px solid var(--stone-2);background:var(--white);border-radius:8px;font-size:12px;cursor:pointer;color:var(--carbon);transition:.12s;}
+  .size-btn:hover:not(:disabled){border-color:var(--carbon);}
+  .size-btn.sel{background:var(--carbon-2);color:var(--white);border-color:var(--carbon-2);}
+  .size-btn:disabled{opacity:.3;cursor:not-allowed;text-decoration:line-through;}
+  .p-stock-line{font-size:11.5px;color:var(--stone);display:flex;align-items:center;gap:6px;min-height:16px;}
+  .p-stock-line.ok{color:#0D9488;}
+  .p-stock-line.low{color:#B45309;}
+  .p-foot{display:flex;align-items:center;justify-content:space-between;margin-top:4px;}
+  .p-price{font-size:17px;font-weight:500;font-variant-numeric:tabular-nums;}
+  .p-price small{font-size:11px;color:var(--stone);font-weight:400;display:block;}
+  .add-btn{background:var(--carbon-2);color:var(--white);border:none;padding:9px 16px;border-radius:9px;font-size:13px;cursor:pointer;transition:.15s;}
+  .add-btn:hover{background:var(--carbon);}
+  .add-btn:disabled{background:var(--stone-2);color:var(--stone);cursor:not-allowed;}
+
+  /* ============ INFO STRIP ============ */
+  .p-info{max-width:960px;margin:32px auto 8px;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .info-card{border:1px solid var(--beige-mid);background:var(--white);border-radius:12px;padding:18px;}
+  .info-card h3{font-size:14px;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+  .info-card h3 svg{color:var(--petrol);}
+  .info-card p{font-size:12.5px;color:var(--stone);}
+  .pay-opt{display:flex;align-items:center;gap:8px;font-size:13px;padding:6px 0;border-bottom:1px dashed var(--beige-mid);}
+  .pay-opt:last-child{border:none;}
+
+  /* ============ FOOTER ============ */
+  .p-footer{margin-top:36px;background:var(--carbon-2);color:var(--stone-2);padding:36px 24px 24px;}
+  .p-footer-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;}
+  .p-footer h4{color:var(--white);font-size:14px;font-weight:500;margin-bottom:10px;}
+  .p-footer p,.p-footer a{font-size:13px;color:var(--beige);text-decoration:none;display:block;margin-bottom:6px;}
+  .p-footer a:hover{color:var(--petrol);}
+  .p-slogan{color:var(--petrol);font-size:13px;margin-top:8px;}
+  .p-foot-bottom{max-width:960px;margin:26px auto 0;padding-top:16px;border-top:1px solid rgba(217,205,184,.2);font-size:12px;color:var(--beige);display:flex;justify-content:space-between;}
+
+  /* ============ CART DRAWER ============ */
+  .overlay{position:fixed;inset:0;background:rgba(31,41,55,.45);opacity:0;pointer-events:none;transition:.2s;z-index:60;}
+  .overlay.open{opacity:1;pointer-events:auto;}
+  .drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,92vw);background:var(--white);z-index:70;transform:translateX(105%);transition:transform .25s ease;display:flex;flex-direction:column;box-shadow:-8px 0 30px rgba(31,41,55,.15);}
+  .drawer.open{transform:none;}
+  .d-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--beige-mid);background:var(--beige-soft);}
+  .d-head h3{font-size:16px;font-weight:500;}
+  .d-items{flex:1;overflow-y:auto;padding:12px 20px;}
+  .d-empty{text-align:center;color:var(--stone);font-size:13.5px;padding:48px 0;}
+  .d-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--beige-mid);}
+  .d-thumb{width:56px;height:56px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--beige-mid);overflow:hidden;}
+  .d-thumb svg{transform:scale(.45);transform-origin:center;}
+  .d-mid{flex:1;min-width:0;}
+  .d-mid .n{font-size:13.5px;font-weight:500;}
+  .d-mid .m{font-size:12px;color:var(--stone);}
+  .d-qty{display:flex;align-items:center;gap:8px;margin-top:6px;}
+  .d-qty button{width:22px;height:22px;border:1px solid var(--stone-2);background:var(--white);border-radius:6px;cursor:pointer;font-size:13px;line-height:1;color:var(--carbon);}
+  .d-right{text-align:right;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;}
+  .d-right .p{font-size:13.5px;font-weight:500;font-variant-numeric:tabular-nums;}
+  .d-remove{border:none;background:none;color:var(--stone);cursor:pointer;font-size:11.5px;text-decoration:underline;}
+  .d-remove:hover{color:#B91C1C;}
+  .d-foot{border-top:1px solid var(--beige-mid);padding:16px 20px;display:flex;flex-direction:column;gap:10px;background:var(--beige-soft);}
+  .d-total{display:flex;justify-content:space-between;font-size:15px;font-weight:500;font-variant-numeric:tabular-nums;}
+  .d-row{display:flex;gap:10px;}
+  .d-row select{flex:1;border:1px solid var(--beige);border-radius:9px;padding:9px 10px;font-size:13px;color:var(--carbon);background:var(--white);}
+  .d-checkout{background:var(--petrol);color:var(--carbon);border:none;padding:13px;border-radius:10px;font-size:15px;font-weight:500;cursor:pointer;transition:.15s;}
+  .d-checkout:hover{filter:brightness(.94);}
+  .d-paynote{font-size:11.5px;color:var(--stone);text-align:center;}
+
+  /* toast */
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--carbon-2);color:var(--white);padding:11px 20px;border-radius:10px;font-size:13.5px;opacity:0;pointer-events:none;transition:.25s;z-index:90;display:flex;align-items:center;gap:8px;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  .toast svg{color:var(--petrol);flex-shrink:0;}
+
+  @media (max-width:760px){
+    .p-nav{display:none;}
+    .p-hero-grid{grid-template-columns:1fr;}
+    .p-hero h1{font-size:30px;}
+    .p-hero-visual{display:none;}
+    .p-info{grid-template-columns:1fr;}
+    .p-footer-grid{grid-template-columns:1fr;}
+    .p-stockbar{margin:14px 12px 0;flex-wrap:wrap;}
+    .p-ghost{margin-left:0;margin-top:10px;}
+  }
+</style>
+</head>
+<body>
+<div class="polo-wrap">
+
+  <!-- ================= HEADER ================= -->
+  <header class="p-header">
+    <div class="p-logo">polo. <em>indumentaria</em><small>FUNCIONAL · CÓMODA · PROFESIONAL</small></div>
+    <nav class="p-nav">
+      <a href="#inicio" class="on" data-nav>Inicio</a>
+      <a href="#cat" data-nav>Catálogo</a>
+      <a href="#cat" data-nav>Colecciones</a>
+      <a href="#foot" data-nav>Sobre nosotros</a>
+      <a href="#foot" data-nav>Contacto</a>
+    </nav>
+    <div class="p-header-icons">
+      <select class="p-sede" title="Sede" aria-label="Sede">
+        <option>Rosario ▾</option>
+      </select>
+      <button class="icon-btn" title="Buscar" onclick="toast('Buscador: próximamente en la versión completa')">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="icon-btn" title="Carrito" onclick="toggleCart(true)">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="p-hero" id="inicio">
+    <div class="p-hero-grid">
+      <div>
+        <div class="p-kicker">Nueva temporada · 2026</div>
+        <h1>Colección Legado<br>y Modernidad</h1>
+        <p class="sub">Arquitectura de lujo inteligente para la familia contemporánea.</p>
+        <a href="#cat" class="p-cta" style="text-decoration:none;">Ver catálogo exclusivo
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <button class="p-ghost" onclick="toast('Modo mayorista: registrate con CUIT para Factura A')">Venta mayorista</button>
+        <div class="p-edition"><span class="dot"></span> Edición limitada — stock de hasta 100 unidades por prenda y talle</div>
+      </div>
+      <div class="p-hero-visual">
+        <div class="hv-chip">Quiet luxury</div>
+        <div class="hv-top">Legado y modernidad · ss26</div>
+        <div class="hv-quote">«La comodidad no es un lujo, es una <b>armadura</b>.»</div>
+        <div class="hv-meta"><span>Lamadrid 470 · Rosario</span><span>08:00 – 17:00 hs</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STOCK BANNER ================= -->
+  <div class="p-stockbar">
+    <span class="dot"></span>
+    <span id="stockMsg">Verificando disponibilidad en depósito Rosario…</span>
+    <div class="bar"><i id="stockFill" style="width:0%"></i></div>
+    <b id="stockPct" style="font-variant-numeric:tabular-nums">—</b>
+  </div>
+
+  <!-- ================= CATALOG ================= -->
+  <div class="p-cat-wrap">
+    <section class="p-cat" id="cat">
+      <div class="p-sec-head">
+        <h2>Catálogo</h2>
+        <span>5 piezas · edición limitada</span>
+      </div>
+      <div class="p-grid" id="grid"></div>
+    </section>
+  </div>
+
+  <!-- ================= INFO STRIP ================= -->
+  <section class="p-info">
+    <div class="info-card">
+      <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg> Medios de pago</h3>
+      <div class="pay-opt"><span class="dot"></span> Transferencia bancaria (con verificación)</div>
+      <div class="pay-opt"><span class="dot"></span> Tarjetas de débito / crédito</div>
+      <div class="pay-opt"><span class="dot"></span> Efectivo en sede</div>
+    </div>
+    <div class="info-card">
+      <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9h11v9H4z"/><path d="M15 12h4l2 3v3h-6"/><circle cx="7.5" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg> Envíos y retiro</h3>
+      <p>Retiro sin costo en Lamadrid 470, Rosario. Envíos a todo el país en compras mayoristas coordinados por WhatsApp.</p>
+    </div>
+    <div class="info-card">
+      <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg> Facturación</h3>
+      <p>Factura A o B según condición fiscal. Venta minorista y mayorista con precios diferenciados por volumen.</p>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="p-footer" id="foot">
+    <div class="p-footer-grid">
+      <div>
+        <h4>polo. <span style="color:var(--petrol)">indumentaria</span></h4>
+        <p>Lamadrid 470, Rosario, Santa Fe, Argentina</p>
+        <p>Lunes a viernes · 08:00 a 17:00 hs</p>
+        <p class="p-slogan">«Funcional · Cómoda · Profesional»</p>
+      </div>
+      <div>
+        <h4>Comprar</h4>
+        <a href="#cat">Catálogo</a>
+        <a href="#" onclick="toast('Política de cambio: 30 días con ticket, prenda sin uso.');return false;">Política de cambio</a>
+        <a href="#" onclick="toast('Mayorista: mínimo 12 prendas por modelo. Factura A disponible.');return false;">Venta mayorista</a>
+      </div>
+      <div>
+        <h4>Contacto rápido</h4>
+        <a href="#" onclick="toast('Formulario de contacto abierto en versión completa');return false;">Formulario de contacto</a>
+        <a href="#" onclick="toast('WhatsApp: +54 341 …');return false;">WhatsApp comercial</a>
+        <a href="#" onclick="toast('Instagram: @polo.indumentaria');return false;">Instagram</a>
+      </div>
+    </div>
+    <div class="p-foot-bottom">
+      <span>© 2026 Indumentaria POLO — Rosario, Santa Fe</span>
+      <span>Minorista · Mayorista</span>
+    </div>
+  </footer>
+
+  <!-- ================= CART DRAWER ================= -->
+  <div class="overlay" id="overlay" onclick="toggleCart(false)"></div>
+  <aside class="drawer" id="drawer" aria-label="Carrito de compras">
+    <div class="d-head">
+      <h3>Tu carrito</h3>
+      <button class="icon-btn" onclick="toggleCart(false)" style="width:32px;height:32px;" aria-label="Cerrar carrito">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="d-items" id="dItems"></div>
+    <div class="d-foot">
+      <div class="d-total"><span>Total</span><span id="dTotal">$ 0</span></div>
+      <div class="d-row">
+        <select id="paySel">
+          <option>Transferencia bancaria</option>
+          <option>Tarjeta de débito / crédito</option>
+          <option>Efectivo en sede</option>
+        </select>
+        <select id="factSel">
+          <option>Factura B</option>
+          <option>Factura A (mayorista)</option>
+        </select>
+      </div>
+      <button class="d-checkout" onclick="checkout()">Confirmar compra</button>
+      <div class="d-paynote">Stock verificado antes de confirmar · Retiro en Lamadrid 470 o envío coordinado</div>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+</div>
+
+<script>
+/* ============================================================
+   Indumentaria POLO — tienda interactiva
+   ============================================================ */
+const fmt = n => '$ ' + n.toLocaleString('es-AR');
+
+/* ---------- Ilustraciones vectoriales de prenda ---------- */
+function pantsSVG(fill, seam, wide, cargo){
+  const legs = wide
+    ? 'M40 24 L28 104 L56 104 L60 40 L64 104 L92 104 L80 24 Z'
+    : 'M42 24 L37 104 L57 104 L60 40 L63 104 L83 104 L78 24 Z';
+  let extra = '';
+  if(cargo){
+    extra = `<rect x="41" y="48" width="13" height="14" rx="2" fill="${fill}" stroke="${seam}" stroke-width="1.6"/>
+             <rect x="66" y="48" width="13" height="14" rx="2" fill="${fill}" stroke="${seam}" stroke-width="1.6"/>
+             <rect x="46" y="46" width="8" height="4" rx="1.5" fill="#00BBA9"/>
+             <rect x="66" y="46" width="8" height="4" rx="1.5" fill="#00BBA9"/>`;
+  }
+  return `<svg width="104" height="124" viewBox="0 0 120 124" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="60" cy="114" rx="34" ry="6" fill="rgba(31,41,55,.10)"/>
+    <rect x="38" y="14" width="44" height="12" rx="3" fill="${fill}" stroke="${seam}" stroke-width="1.8"/>
+    <path d="${legs}" fill="${fill}" stroke="${seam}" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M60 26 L60 ${wide?40:38}" stroke="${seam}" stroke-width="1.6" stroke-dasharray="3 3"/>
+    <path d="M60 44 L57 100 M60 44 L63 100" stroke="${seam}" stroke-width="1.2" stroke-dasharray="3 3" opacity=".7"/>
+    <path d="M44 26 Q48 36 54 34 M76 26 Q72 36 66 34" fill="none" stroke="${seam}" stroke-width="1.4"/>
+    <rect x="54" y="16" width="12" height="4" rx="1.5" fill="${seam}" opacity=".55"/>
+    ${extra}
+  </svg>`;
+}
+function teeSVG(fill, seam){
+  return `<svg width="104" height="124" viewBox="0 0 120 124" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="60" cy="114" rx="36" ry="6" fill="rgba(31,41,55,.10)"/>
+    <path d="M38 26 L22 40 L32 52 L40 45 L40 102 L80 102 L80 45 L88 52 L98 40 L82 26 Q60 42 38 26 Z"
+      fill="${fill}" stroke="${seam}" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M44 28 Q60 40 76 28" fill="none" stroke="${seam}" stroke-width="1.8"/>
+    <path d="M40 56 L80 56 M40 96 L80 96" stroke="${seam}" stroke-width="1.2" stroke-dasharray="3 3" opacity=".7"/>
+    <rect x="53" y="70" width="14" height="5" rx="2" fill="#00BBA9"/>
+  </svg>`;
+}
+function comboSVG(){
+  return `<svg width="124" height="124" viewBox="0 0 140 124" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="70" cy="114" rx="46" ry="6" fill="rgba(31,41,55,.10)"/>
+    <g transform="translate(-26,-6) scale(.92)">
+      <rect x="38" y="14" width="44" height="12" rx="3" fill="#D9CDB8" stroke="#B8A98D" stroke-width="1.8"/>
+      <path d="M42 24 L37 104 L57 104 L60 40 L63 104 L83 104 L78 24 Z" fill="#D9CDB8" stroke="#B8A98D" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M60 26 L60 38 M60 44 L57 100 M60 44 L63 100" stroke="#B8A98D" stroke-width="1.2" stroke-dasharray="3 3"/>
+    </g>
+    <g transform="translate(38,4) scale(.98)">
+      <path d="M38 26 L22 40 L32 52 L40 45 L40 102 L80 102 L80 45 L88 52 L98 40 L82 26 Q60 42 38 26 Z"
+        fill="#3B4453" stroke="#1F2937" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M44 28 Q60 40 76 28" fill="none" stroke="#1F2937" stroke-width="1.8"/>
+      <rect x="53" y="70" width="14" height="5" rx="2" fill="#00BBA9"/>
+    </g>
+  </svg>`;
+}
+
+/* ---------- Catálogo ---------- */
+const PRODUCTS = [
+  {id:1, name:'Pantalón masculino', desc:'Corte de precisión y sastrería técnica para el día a día.', price:38900,
+   stock:{S:34, M:12, L:56, XL:8}, bg:'#EFE9DC',
+   art:()=>pantsSVG('#D9CDB8','#B8A98D',false,false), chips:['#D9CDB8','#3B4453']},
+  {id:2, name:'Remera negra masculina', desc:'Algodón mercerizado en color Carbon, estabilidad cromática absoluta.', price:14900,
+   stock:{S:88, M:61, L:0, XL:45}, bg:'#E9E6E0',
+   art:()=>teeSVG('#3B4453','#1F2937'), chips:['#1F2937','#3B4453']},
+  {id:3, name:'Pantalón femenino', desc:'Silueta protectora Wide Leg con denim de precisión.', price:36900,
+   stock:{S:22, M:47, L:39, XL:15}, bg:'#F3EEE3',
+   art:()=>pantsSVG('#E7DECD','#C6B99E',true,false), chips:['#E7DECD','#D9CDB8']},
+  {id:4, name:'Pantalón juvenil', desc:'Estilo Neo-Punk táctico con volúmenes estratégicos para farmear aura en la ciudad.', price:25900,
+   stock:{S:9, M:0, L:30, XL:77}, bg:'#E8E5DF',
+   art:()=>pantsSVG('#3B4453','#1F2937',false,true), chips:['#3B4453','#00BBA9']},
+  {id:5, name:'Combo inicial', desc:'Pantalón + remera complementaria a precio especial de bienvenida.', price:44900, combo:true,
+   stock:{S:100, M:74, L:52, XL:33}, bg:'#F1EBDF',
+   art:comboSVG, chips:['#D9CDB8','#3B4453','#00BBA9']},
+];
+
+const sel = {};  // prodId -> talle seleccionado
+const cart = []; // {id, size, qty}
+
+/* ---------- Render del catálogo ---------- */
+function renderGrid(){
+  const g = document.getElementById('grid');
+  g.innerHTML = PRODUCTS.map(p=>{
+    const sizes = Object.entries(p.stock).map(([s,q])=>
+      `<button class="size-btn ${sel[p.id]===s?'sel':''}" ${q===0?'disabled':''} onclick="pickSize(${p.id},'${s}')" title="${q===0?'Sin stock':q+' en stock'}">${s}</button>`).join('');
+    const cur = sel[p.id];
+    let stockLine = '<span class="p-stock-line">Seleccioná un talle para verificar stock</span>';
+    if(cur!==undefined){
+      const q = p.stock[cur];
+      if(q===0) stockLine = `<span class="p-stock-line low">Talle ${cur}: sin stock — avisame cuando vuelva</span>`;
+      else if(q<=15) stockLine = `<span class="p-stock-line low">⚠ Talle ${cur}: solo ${q} unidades — últimas</span>`;
+      else stockLine = `<span class="p-stock-line ok">✓ Talle ${cur}: ${q} unidades disponibles</span>`;
+    }
+    const chips = p.chips.map(c=>`<i style="background:${c}"></i>`).join('');
+    return `<div class="p-card ${p.combo?'combo':''}">
+      <div class="p-img" style="background:${p.bg}">${p.art()}${p.combo?'<span class="p-badge">Combo destacado</span>':''}<span class="p-tono">${chips}</span></div>
+      <div class="p-body">
+        <p class="p-name">${p.name}</p>
+        <p class="p-desc">${p.desc}</p>
+        <div class="p-sizes">${sizes}</div>
+        ${stockLine}
+        <div class="p-foot">
+          <div class="p-price">${fmt(p.price)}${p.combo?'<small>vs. $ 53.800 por separado</small>':''}</div>
+          <button class="add-btn" ${cur===undefined?'disabled':''} onclick="addToCart(${p.id})">${cur===undefined?'Elegí talle':'Agregar'}</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ---------- Lógica de compra ---------- */
+function pickSize(id,size){
+  sel[id] = size;
+  renderGrid();
+}
+function addToCart(id){
+  const p = PRODUCTS.find(x=>x.id===id), s = sel[id];
+  if(s===undefined) return;
+  const avail = p.stock[s];
+  const inCart = cart.filter(c=>c.id===id&&c.size===s).reduce((a,c)=>a+c.qty,0);
+  if(inCart>=avail){ toast(`Stock máximo alcanzado para talle ${s} (${avail} u.)`); return; }
+  const ex = cart.find(c=>c.id===id&&c.size===s);
+  if(ex) ex.qty++; else cart.push({id,size:s,qty:1});
+  renderCart(); toast(`${p.name} · talle ${s} agregado al carrito`);
+}
+function changeQty(i,d){
+  const c = cart[i], p = PRODUCTS.find(x=>x.id===c.id);
+  const avail = p.stock[c.size];
+  if(d>0 && c.qty>=avail){ toast(`Sin más stock de talle ${c.size} (máx. ${avail})`); return; }
+  c.qty+=d;
+  if(c.qty<=0) cart.splice(i,1);
+  renderCart();
+}
+function removeItem(i){ cart.splice(i,1); renderCart(); }
+
+function renderCart(){
+  const n = cart.reduce((a,c)=>a+c.qty,0);
+  document.getElementById('cartCount').textContent = n;
+  const box = document.getElementById('dItems');
+  if(!cart.length){
+    box.innerHTML = '<div class="d-empty">Tu carrito está vacío.<br>La armadura perfecta te espera en el catálogo.</div>';
+  } else {
+    box.innerHTML = cart.map((c,i)=>{
+      const p = PRODUCTS.find(x=>x.id===c.id);
+      return `<div class="d-item">
+        <div class="d-thumb" style="background:${p.bg}">${p.art()}</div>
+        <div class="d-mid">
+          <div class="n">${p.name}</div>
+          <div class="m">Talle ${c.size} · ${fmt(p.price)} c/u</div>
+          <div class="d-qty">
+            <button onclick="changeQty(${i},-1)">−</button><span style="font-size:13px;font-variant-numeric:tabular-nums">${c.qty}</span><button onclick="changeQty(${i},1)">+</button>
+          </div>
+        </div>
+        <div class="d-right">
+          <span class="p">${fmt(p.price*c.qty)}</span>
+          <button class="d-remove" onclick="removeItem(${i})">quitar</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  const total = cart.reduce((a,c)=>a + PRODUCTS.find(x=>x.id===c.id).price*c.qty, 0);
+  document.getElementById('dTotal').textContent = fmt(total);
+}
+
+/* ---------- Drawer / checkout ---------- */
+function toggleCart(open){
+  document.getElementById('drawer').classList.toggle('open',open);
+  document.getElementById('overlay').classList.toggle('open',open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+function checkout(){
+  if(!cart.length){ toast('El carrito está vacío'); return; }
+  const pay = document.getElementById('paySel').value;
+  const fact = document.getElementById('factSel').value;
+  cart.length = 0; renderCart(); renderGrid(); toggleCart(false);
+  toast(`Pedido confirmado · ${pay} · ${fact}. ¡Gracias por elegir POLO!`);
+}
+
+/* ---------- Toast ---------- */
+let toastT;
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>' + msg;
+  t.classList.add('show');
+  clearTimeout(toastT);
+  toastT = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+
+/* ---------- Estado activo del menú al hacer scroll ---------- */
+document.querySelectorAll('[data-nav]').forEach(a=>{
+  a.addEventListener('click',()=>{
+    document.querySelectorAll('.p-nav a').forEach(x=>x.classList.remove('on'));
+    a.classList.add('on');
+  });
+});
+
+/* ---------- Banner de stock en vivo ---------- */
+function stockBar(){
+  let units = 0, cap = 0;
+  PRODUCTS.forEach(p=>Object.values(p.stock).forEach(q=>{units+=q;cap+=100;}));
+  const pct = Math.round(units/cap*100);
+  setTimeout(()=>{
+    document.getElementById('stockFill').style.width = pct+'%';
+    document.getElementById('stockPct').textContent = pct+'%';
+    document.getElementById('stockMsg').innerHTML = `Stock en vivo de la edición limitada — <b>${units.toLocaleString('es-AR')} unidades</b> disponibles de ${cap.toLocaleString('es-AR')} (máx. 100 por modelo y talle)`;
+  }, 700);
+}
+
+/* ---------- Cerrar drawer con tecla Escape ---------- */
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') toggleCart(false); });
+
+renderGrid(); renderCart(); stockBar();
+</script>
+</body>
+</html>
